@@ -1,0 +1,30 @@
+[package]
+name = "my_nft"
+version = "1.0.0"
+edition = "2021"
+authors = ["Favour Aniogor"]
+
+[dependencies]
+
+ink = { version = "4.2.1", default-features = false }
+
+scale = { package = "parity-scale-codec", version = "3", default-features = false, features = ["derive"] }
+scale-info = { version = "2.6", default-features = false, features = ["derive"], optional = true }
+
+# Include brush as a dependency and enable default implementation for PSP22 via brush feature
+# openbrush = { git = "https://github.com/Brushfam/openbrush-contracts", default-features = false, features = ["psp22"] }
+# # openbrush = { git = "https://github.com/Brushfam/openbrush-contracts", branch = "develop", default-features = false }
+
+psp34 = { git = "https://github.com/Cardinal-Cryptography/PSP34", default-features = false, features = [] }
+
+
+[lib]
+name = "my_nft"
+path = "lib.rs"
+
+
+[features]
+default = ["std"]
+std = ["ink/std", "scale/std", "scale-info/std", "psp34/std"]
+enumerable = []
+ink-as-dependency = []

@@ -1,0 +1,1 @@
+export const PSP22Hash = '0x7090550ce9c024562425cf156b0fd8f2491161a03a8c6b22702fe8ba4d30febd'

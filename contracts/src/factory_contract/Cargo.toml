@@ -1,0 +1,29 @@
+[package]
+name = "factory_contract"
+version = "1.0.0"
+edition = "2021"
+authors = ["Favour Aniogor"]
+
+[dependencies]
+
+ink = { version = "4.2.1", default-features = false }
+
+scale = { package = "parity-scale-codec", version = "3", default-features = false, features = ["derive"] }
+scale-info = { version = "2.6", default-features = false, features = ["derive"], optional = true }
+
+
+my_psp = { path = "./my_psp", default-features = false, features = ["ink-as-dependency"] }
+my_nft = { path = "./my_nft", default-features = false, features = ["ink-as-dependency"] }
+psp22 = { git = "https://github.com/Cardinal-Cryptography/PSP22", default-features = false, features = [] }
+
+
+[lib]
+name = "factory_contract"
+path = "lib.rs"
+
+
+[features]
+default = ["std"]
+std = ["ink/std", "scale/std", "scale-info/std", "my_psp/std", "psp22/std", "my_nft/std"]
+ink-as-dependency = []
+contract = []
